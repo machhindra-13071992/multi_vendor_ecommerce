@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+label{ font-weight: 600 !important; }
+.hide{ display:none !important; }
+.show{ display:block !important; }
+.form-group.required > label:after { content:" *"; color:red; }
+
+/* Parsley Validation */
+.parsley-errors-list { margin-top: 4px; padding: 0; }
+.parsley-errors-list li { padding: 0; list-style: none; color: #cc0000; }
+.parsley-error { border-color: #c00 !important; }
+.parsley-errors-list{ margin: 0px 0px 0px 0px !important; }
+.display-none{ display: none; }
+.pagination{ margin: 0px 0px 10px 0px !important; float: right !important; }
+
+/** The Magic **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " " !important;
+  display: block !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-top: 17px solid transparent !important;
+  border-bottom: 17px solid transparent !important;
+  border-left: 10px solid white !important;
+  position: absolute !important;
+  top: 50% !important;
+  margin-top: -17px !important;
+  left: 100% !important;
+  z-index: 3 !important;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " " !important;
+  display: block !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-top: 17px solid transparent !important;
+  border-bottom: 17px solid transparent !important;
+  border-left: 10px solid rgb(173, 173, 173) !important;
+  position: absolute !important;
+  top: 50% !important;
+  margin-top: -17px !important;
+  margin-left: 1px !important;
+  left: 100% !important;
+  z-index: 3 !important;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px !important;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px !important;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:8px 18px 8px 24px !important;
+}
+
+/** Default button **/
+.btn-breadcrumb .btn.btn-default:not(:last-child):after {
+  border-left: 10px solid #fff !important;
+}
+.btn-breadcrumb .btn.btn-default:not(:last-child):before {
+  border-left: 10px solid #ccc !important;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+  border-left: 10px solid #ebebeb !important;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
+  border-left: 10px solid #adadad !important;
+}
+
+/** Primary button **/
+.btn-breadcrumb .btn.btn-primary:not(:last-child):after {
+  border-left: 10px solid #428bca !important;
+}
+.btn-breadcrumb .btn.btn-primary:not(:last-child):before {
+  border-left: 10px solid #357ebd !important;
+}
+.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):after {
+  border-left: 10px solid #3276b1 !important;
+}
+.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):before {
+  border-left: 10px solid #285e8e !important;
+}
+
+/** Success button **/
+.btn-breadcrumb .btn.btn-success:not(:last-child):after {
+  border-left: 10px solid #5cb85c !important;
+}
+.btn-breadcrumb .btn.btn-success:not(:last-child):before {
+  border-left: 10px solid #4cae4c !important;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+  border-left: 10px solid #47a447 !important;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+  border-left: 10px solid #398439 !important;
+}
+
+/** Danger button **/
+.btn-breadcrumb .btn.btn-danger:not(:last-child):after {
+  border-left: 10px solid #d9534f !important;
+}
+.btn-breadcrumb .btn.btn-danger:not(:last-child):before {
+  border-left: 10px solid #d43f3a !important;
+}
+.btn-breadcrumb .btn.btn-danger:hover:not(:last-child):after {
+  border-left: 10px solid #d2322d !important;
+}
+.btn-breadcrumb .btn.btn-danger:hover:not(:last-child):before {
+  border-left: 10px solid #ac2925 !important;
+}
+
+/** Warning button **/
+.btn-breadcrumb .btn.btn-warning:not(:last-child):after {
+  border-left: 10px solid #f0ad4e !important;
+}
+.btn-breadcrumb .btn.btn-warning:not(:last-child):before {
+  border-left: 10px solid #eea236 !important;
+}
+.btn-breadcrumb .btn.btn-warning:hover:not(:last-child):after {
+  border-left: 10px solid #ed9c28 !important;
+}
+.btn-breadcrumb .btn.btn-warning:hover:not(:last-child):before {
+  border-left: 10px solid #d58512 !important;
+}
+
+/** Info button **/
+.btn-breadcrumb .btn.btn-info:not(:last-child):after {
+  border-left: 10px solid #5bc0de !important;
+}
+.btn-breadcrumb .btn.btn-info:not(:last-child):before {
+  border-left: 10px solid #46b8da !important;
+}
+.btn-breadcrumb .btn.btn-info:hover:not(:last-child):after {
+  border-left: 10px solid #39b3d7 !important;
+}
+.btn-breadcrumb .btn.btn-info:hover:not(:last-child):before {
+  border-left: 10px solid #269abc !important;
+}
+
