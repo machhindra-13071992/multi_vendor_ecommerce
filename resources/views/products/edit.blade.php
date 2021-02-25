@@ -51,8 +51,8 @@
 									<div class="row">
 										<div class="col-md-3">
                                         <div class="form-group">
-                                            {!! Form::Label('price', 'Price') !!}
-                                            {!! Form::text('price', null, ['class' => 'form-control', 'placeholder'=>'Selling Price']) !!}
+                                            {!! Form::Label('price', 'Original Price ') !!}
+                                            {!! Form::text('price', null, ['class' => 'form-control', 'placeholder'=>'Original Price ']) !!}
                                         </div>
                                     </div>
 									<div class="col-md-3">

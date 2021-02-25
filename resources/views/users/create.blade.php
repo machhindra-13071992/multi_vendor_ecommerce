@@ -1,9 +1,5 @@
 @extends('layouts.default')
-
 @section('content')
-<!-- <div class="page-title">
-    <h4>User Add</h4>
-</div> -->
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">

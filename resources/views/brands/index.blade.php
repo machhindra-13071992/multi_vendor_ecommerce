@@ -4,7 +4,7 @@
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
             @if ($isLoggedIn) 
-                <a class="btn btn-info" href="{{ route('categories.create') }}"> <i class="fa fa-plus-circle"></i> Add Category</a>
+                <a class="btn btn-info" href="{{ route('brands.create') }}"> <i class="fa fa-plus-circle"></i> Add Brand</a>
             @endif
         </div>
     </div>
@@ -21,13 +21,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">Categories</h4>
+                    <h4 class="card-title">Brands</h4>
                     <div class="table-overflow">
-                        {!! $categories->links() !!}
+                        {!! $brands->links() !!}
                         <table class="table table-bordered table-hover table-sm">
                             <thead>
                                 <tr>
-                                    <th>Category</th>
+                                    <th>Brand</th>
 									<th>Image</th>
                                     <th>Active</th>
                                     <th>Created</th>
@@ -36,7 +36,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $key => $videoStatus)
+                                @foreach ($brands as $key => $videoStatus)
                                 <tr>
                                     <td>
                                         <div class="mrg-top-5">
@@ -68,9 +68,9 @@
                                     <td>
                                         <div class="mrg-top-5">
                                             @if($isLoggedIn)
-                                               <a class="btn btn-primary btn-sm" href="{{ route('categories.edit',$videoStatus->id) }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o"></i> </a>
-                                               <a class="btn btn-success btn-sm" href="{{ route('categories.show',$videoStatus->id) }}" data-toggle="tooltip" title="View"> <i class="fa fa-search"></i></a>  
-                                               <a class="btn btn-danger btn-sm" href="javascript:void(0)" onclick="deleteSweetAlert('categories','{{ $videoStatus->id }}','update')" data-toggle="tooltip" title="Delete"><i class="fa fa-trash-o"></i>  </a>
+                                               <a class="btn btn-primary btn-sm" href="{{ route('brands.edit',$videoStatus->id) }}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o"></i> </a>
+                                               <a class="btn btn-success btn-sm" href="{{ route('brands.show',$videoStatus->id) }}" data-toggle="tooltip" title="View"> <i class="fa fa-search"></i></a>  
+                                               <a class="btn btn-danger btn-sm" href="javascript:void(0)" onclick="deleteSweetAlert('brands','{{ $videoStatus->id }}','update')" data-toggle="tooltip" title="Delete"><i class="fa fa-trash-o"></i>  </a>
                                             @endif
                                        </div>
                                     </td>
@@ -78,7 +78,7 @@
                                  @endforeach
                             </tbody>
                         </table>
-                        {!! $categories->links() !!}
+                        {!! $brands->links() !!}
                     </div>
                 </div>
             </div>
