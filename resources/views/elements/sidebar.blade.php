@@ -42,18 +42,32 @@
 							<span class="title">Users</span>
 						</a>
 					</li>
-					<li class="nav-item dropdown {{ (request()->segment(1) == 'brands' || request()->segment(1) == 'categories' || request()->segment(1) == 'products') ? 'open' : '' }}">
+                    <li class="nav-item">
+                        <a class="" href="{{ secure_asset('/vendors') }}">
+                            <span class="icon-holder">
+                                    <i class="ei ei-time"></i>
+                                </span>
+                            <span class="title">Vendors</span>
+                        </a>
+                    </li>
+					<li class="nav-item dropdown {{ (request()->segment(1) == 'brands' || request()->segment(1) == 'quantities' || request()->segment(1) == 'categories' ||request()->segment(1) == 'sub_categories' || request()->segment(1) == 'products') ? 'open' : '' }}">
 						<a class="dropdown-toggle" href="javascript:void(0);">
-                            <span class="icon-holder"><i class="ti-settings"></i></span>
+                            <span class="icon-holder"><i class="fa fa-cart-arrow-down"></i></span>
                             <span class="title">Products</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                 <li><a href="{{ secure_asset('/brands') }}"><span class="icon-holder"><i class="fa fa-flash"></i></span>&nbsp;Brands</a></li>
+                                 <li><a href="{{ secure_asset('/brands') }}"><span class="icon-holder"><i class="fa fa-bitbucket"></i></span>&nbsp;Brands</a></li>
                             </li>
                             <li>
-                                 <li><a href="{{ secure_asset('/categories') }}"><span class="icon-holder"><i class="fa fa-flash"></i></span>&nbsp;Categories</a></li>
+                                 <li><a href="{{ secure_asset('/quantities') }}"><span class="icon-holder"><i class="fa fa-creative-commons"></i></span>&nbsp;Quantities</a></li>
+                            </li>
+                            <li>
+                                 <li><a href="{{ secure_asset('/categories') }}"><span class="icon-holder"><i class="fa fa-cog"></i></span>&nbsp;Categories</a></li>
+                            </li>
+                            <li>
+                                 <li><a href="{{ secure_asset('/sub_categories') }}"><span class="icon-holder"><i class="fa fa-cogs"></i></span>&nbsp;Sub Categories</a></li>
                             </li>
                             <li>
                                  <li><a href="{{ secure_asset('/products') }}"><span class="icon-holder"><i class="fa fa-flash"></i></span>&nbsp;Manage Products</a></li>

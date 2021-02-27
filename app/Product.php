@@ -12,7 +12,7 @@ class Product extends Model
     protected $gaurded = [];
 
     protected $fillable = [
-        'product_code','product_name','product_description','quantity_id','user_id','price','discount','image_file','category_id','sub_category_id','image_file','status','created_at', 'updated_at', 'created_by', 'updated_by'
+        'uuid','quantity_id','user_id','category_id','sub_category_id','price','product_code','product_name','meta_title','slug','sku','quantity','product_description','discount','image_file','image_file','status','created_at', 'updated_at', 'created_by', 'updated_by'
     ];
 	
 	public function users()

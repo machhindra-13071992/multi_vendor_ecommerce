@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 use DB;
 use Hash;
@@ -35,9 +36,10 @@ class UserController extends Controller{
     {
 		$queryData = [];
 		if (Input::get('role_id')) {
-			$queryData[] = ['role_id',Input::get('role_id')];
+			$queryData[] = ['role_id',1];
 		}
-        $data = User::with('roles','user_money_transactions')->where($queryData)->orderBy('id', 'asc')->paginate(20);
+        $queryData[] = ['role_id',1];
+        $data = User::with('roles')->where($queryData)->orderBy('id', 'asc')->paginate(20);
         return view('users.index',compact('data'))->with('i',($request->input('page', 1) - 1) * 5);
     }
 	/**
@@ -55,7 +57,8 @@ class UserController extends Controller{
      public function create()
     {
         $roles = Role::orderBy('id')->pluck('name', 'id')->toArray();
-        return view('users.create', compact('roles'));
+        $uuid = Str::uuid();
+        return view('users.create', compact('roles','uuid'));
     }
 
 
@@ -250,7 +253,6 @@ class UserController extends Controller{
         }else{
             return Redirect::to('/login?error=1');
         }
-        
     }
     
     public function admin_login_backend(Request $request) {
@@ -355,7 +357,7 @@ class UserController extends Controller{
         );
         
         //First time login user
-        $finduserRegular = User::where('email', $userdata['email'])
+        $finduserRegular = User::where('email',$userdata['email'])
             ->first();
         
         if(empty($finduserRegular)){

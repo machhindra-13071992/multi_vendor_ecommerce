@@ -12,92 +12,107 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-heading border bottom">
-                    <h4 class="card-title">Add Stock Data</h4>
-                </div>
-                <div class="card-block">
+            <div class="col-md-12">
+                <div class="card">
                     <div class="card-block">
                         <div class="row">
-                            <div class="col-md-12 ml-auto mr-auto">
-                                {!! Form::open(['route' => 'products.store', 'method' => 'POST', 'role'=>'form','enctype'=>"multipart/form-data",'id'=>'form-validation', 'novalidate'=>"novalidate"]) !!}
-                                    <div class="row">
-                                     <div class="col-md-3">
-                                        <div class="form-group required">
-                                            {!! Form::Label('product_code', 'Product Code') !!}
-                                            {!! Form::text('product_code', $product_code, ['class' => 'form-control','placeholder'=>'product Code','required','readonly']) !!}
-                                        </div>
+                            <div class="col-md-7">
+                                <h4 class="card-title">Add Product</h4>
+                                {!! Form::open(['route' => 'products.store','enctype'=>"multipart/form-data",'class'=>'form-horizontal mrg-top-40 pdd-right-30','method' => 'POST', 'role'=>'form', 'id'=>'form-validation', 'novalidate'=>"novalidate"]) !!}
+        						<div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Title</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder'=>'The product title to be displayed on the Shop Page and Product Page.','required']) !!}
                                     </div>
-									<div class="col-md-3">
-										<div class="form-group required">
-											{!! Form::Label('category_id', 'Category Name') !!}
-											{!! Form::select('category_id', ['' => 'Select'] + $categories, null, array( 'class' => 'form-control customer_details','required')) !!}
-										</div>
-									</div>
-									<div class="col-md-3">
-                                        <div class="form-group required">
-                                            {!! Form::Label('product_name', 'Product Name') !!}
-                                            {!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder'=>' Name','required']) !!}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Meta Title</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('meta_title', null, ['class' => 'form-control', 'placeholder'=>'The meta title to be used for browser title and SEO.']) !!}
                                     </div>
-									<div class="col-md-3">
-                                        <div class="form-group required">
-                                            {!! Form::Label('product_description','Product Description') !!}
-                                            {!! Form::textarea('product_description',null,array('placeholder' => 'Product Description', 'class' => 'form-control','required','rows'=>1)) !!}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Slug URL</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder'=>'The slug to form the URL.']) !!}
                                     </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">SKU</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('sku', null, ['class' => 'form-control', 'placeholder'=>'The Stock Keeping Unit to track the product inventory.']) !!}
                                     </div>
-									<div class="row">
-										<div class="col-md-3">
-                                        <div class="form-group required">
-                                            {!! Form::Label('price', 'Price') !!}
-                                            {!! Form::text('price', null, ['class' => 'form-control', 'placeholder'=>'Selling Price','required']) !!}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Product Code</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('product_code', $product_code, ['class' => 'form-control','placeholder'=>'product Code','required','readonly']) !!}
                                     </div>
-									<div class="col-md-3">
-                                        <div class="form-group">
-                                            {!! Form::Label('discount','Discount') !!}
-                                            {!! Form::text('discount', null, array('placeholder' => 'Discount','class' => 'form-control')) !!}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Category</label>
+                                    <div class="col-md-10">
+                                        {!! Form::select('category_id', ['' => 'Select'] + $categories, null, array( 'class' => 'form-control customer_details','required')) !!}
                                     </div>
-									<div class="col-md-3">
-										<div class="form-group required">
-											{!! Form::Label('quantity_id', 'Quantity Name') !!}
-											{!! Form::select('quantity_id', ['' => 'Select'] + $quantities, null, array( 'class' => 'form-control customer_details','required')) !!}
-										</div>
-									</div>
-									<div class="col-md-3">
-										<div class="form-group required">
-											{!! Form::Label('image_file', 'Upload Image') !!}
-											<input type="file" name="image_file" placeholder="Upload Video" class="form-control" 
-											<?php  if(!isset($products['image_file'])) {?> required <?php  } ?> >
-										</div>
-										<?php  if(isset($products['image_file'])  && !empty($products['image_file'])) {?>
-											<img style="width:50%" src="{{ secure_asset('/storage/app/company_logo_files/') }}/<?php echo $companies['image_file']; ?>">
-										<?php  }?>
-									</div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Sub Category</label>
+                                    <div class="col-md-10">
+                                        {!! Form::select('sub_category_id', ['' => 'Select'] + $sub_categories, null, array( 'class' => 'form-control customer_details','required')) !!}
                                     </div>
-                                    <div class="row">
-						
-                                        <div class="col-md-12">
-											{!! Form::hidden('status', 1, ['class' => 'form-control', 'required']) !!}
-                                            {!! Form::hidden('created_at', date('Y-m-d H:i:s'), ['class' => 'form-control', 'required']) !!}
-                                            {!! Form::hidden('updated_at', date('Y-m-d H:i:s'), ['class' => 'form-control', 'required']) !!}
-                                            {!! Form::hidden('created_by', Auth::id(), ['class' => 'form-control', 'required']) !!}
-                                            {!! Form::hidden('updated_by', Auth::id(), ['class' => 'form-control', 'required']) !!}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Price</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('price', null, ['class' => 'form-control', 'placeholder'=>'The price of the product.','required']) !!}
                                     </div>
-                                    <button class="btn btn-primary">Submit</button>
-                                    <a href="{{ route('products.index')}}" class="btn btn-danger">Cancel</a>
-                                    <button class="btn btn-default" type="reset">Reset</button>
-                                <!-- </form> -->
-                                {{ Form::close() }}
-                            </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Discount</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('discount', null, ['class' => 'form-control', 'placeholder'=>'The discount on the product.','required']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Quantity</label>
+                                    <div class="col-md-10">
+                                        {!! Form::text('quantity', null, ['class' => 'form-control', 'placeholder'=>'The available quantity of the product.','required']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Product Description</label>
+                                    <div class="col-md-10">
+                                        {!! Form::textarea('product_description',null,array('placeholder' => 'Product Description', 'class' => 'form-control','required','rows'=>'1')) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="form-1-1" class="col-md-2 control-label">Upload Image</label>
+                                    <div class="col-md-10">
+                                            <input type="file" name="image_file" placeholder="Upload Video" class="form-control" 
+                                            <?php  if(!isset($products['image_file'])) {?> required <?php  } ?> >
+                                    </div>
+                                    <?php  if(isset($products['image_file'])  && !empty($products['image_file'])) {?>
+                                            <img style="width:50%" src="{{ secure_asset('/storage/app/product_image_files/') }}/<?php echo $products['image_file']; ?>">
+                                    <?php  }?>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-10">
+                                        {!! Form::hidden('uuid', $uuid, ['class' => 'form-control', 'required']) !!}
+        								{!! Form::hidden('status', 1, ['class' => 'form-control', 'required']) !!}
+                                        {!! Form::hidden('created_at', date('Y-m-d H:i:s'), ['class' => 'form-control', 'required']) !!}
+                                        {!! Form::hidden('updated_at', date('Y-m-d H:i:s'), ['class' => 'form-control', 'required']) !!}
+                                        {!! Form::hidden('created_by', Auth::id(), ['class' => 'form-control', 'required']) !!}
+                                        {!! Form::hidden('updated_by', Auth::id(), ['class' => 'form-control', 'required']) !!}
+                                        <button class="btn btn-primary">Submit</button>
+                                        <a href="{{ route('products.index')}}" class="btn btn-danger">Cancel</a>
+                                        <button class="btn btn-default" type="reset">Reset</button>
+                                    </div>
+                                </div>
+                            {{ Form::close() }}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>      
-    </div>
+        </div>
+    </div>      
 @endsection

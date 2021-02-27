@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use DB;
 use App\Country;
@@ -37,10 +38,12 @@ class ProductController extends Controller
  * @return \Illuminate\Http\Response
  */
     public function create() {
+        $uuid = Str::uuid();
 		$quantities  = DB::table('quantities')->orderBy('name')->pluck('name', 'id')->toArray();
 		$categories  = DB::table('categories')->orderBy('name')->pluck('name', 'id')->toArray();
+        $sub_categories  = DB::table('sub_categories')->orderBy('name')->pluck('name', 'id')->toArray();
 		$product_code = $this->getMaxInvoiceNumber();
-        return view('products.create',compact('product_code','categories','quantities'));
+        return view('products.create',compact('product_code','categories','quantities','sub_categories','uuid'));
     }
 	
 	public function getMaxInvoiceNumber(){
@@ -91,8 +94,9 @@ class ProductController extends Controller
     public function edit($id) {
 		$categories  = DB::table('categories')->orderBy('name')->pluck('name', 'id')->toArray();
 		$quantities  = DB::table('quantities')->orderBy('name')->pluck('name', 'id')->toArray();
+        $sub_categories  = DB::table('sub_categories')->orderBy('name')->pluck('name', 'id')->toArray();
         $products = Product::where('id', $id)->first();
-        return view('products.edit',compact('products','categories','quantities'));
+        return view('products.edit',compact('products','categories','quantities','sub_categories'));
     }
   
 /**

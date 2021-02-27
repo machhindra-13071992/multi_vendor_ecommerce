@@ -106,6 +106,7 @@
                                     </div>
                                 </div>
                                 {!! Form::hidden('created_at', date('Y-m-d H:i:s'), ['class' => 'form-control', 'required']) !!}
+                                {!! Form::hidden('uuid', $uuid, ['class' => 'form-control', 'required']) !!}
                                 {!! Form::hidden('updated_at', date('Y-m-d H:i:s'), ['class' => 'form-control', 'required']) !!}
                                 {!! Form::hidden('created_by', Auth::id(), ['class' => 'form-control', 'required']) !!}
                                 {!! Form::hidden('modified_by', Auth::id(), ['class' => 'form-control', 'required']) !!}

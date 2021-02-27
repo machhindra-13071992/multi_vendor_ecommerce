@@ -19,6 +19,7 @@
 	Route::group(['middleware' => 'auth'], function () {
 	  // All route your need authenticated
 		Route::resource('users','UserController');
+		Route::resource('vendors','VendorController');
 		Route::resource('general_settings','GeneralSettingController');
 		Route::resource('countries', 'CountryController');
 		Route::resource('video_statuses', 'VideoStatusController');
@@ -26,6 +27,7 @@
 		Route::resource('cities', 'CityController');
 		Route::resource('roles', 'RoleController');
 		Route::resource('categories','CategoryController');
+		Route::resource('sub_categories','SubCategoryController');
 		Route::resource('brands','BrandController');
 		Route::resource('products','ProductController');
 		Route::resource('quantities','QuantityController');
